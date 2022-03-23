@@ -1,0 +1,3 @@
+class SpaceStationController < ApplicationController
+
+end

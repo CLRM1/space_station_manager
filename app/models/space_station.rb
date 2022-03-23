@@ -1,0 +1,3 @@
+class SpaceStation < ApplicationRecord
+
+end
