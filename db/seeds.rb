@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Astronaut.destroy_all
+SpaceStation.destroy_all
+
+iss = SpaceStation.create!(name: 'ISS', habitable: true, max_occupants: 7)
+
+walker = Astronaut.create!(name: 'Shannon Walker', active: true, years_active: 10, space_station_id: iss.id)
