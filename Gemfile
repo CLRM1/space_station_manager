@@ -17,7 +17,8 @@ group :development, :test do
   gem 'pry'
   gem 'simplecov'
   gem 'orderly'
-  gem 'shoulda-matchers', '~> 3.1'
+  gem 'launchy'
+  gem 'shoulda-matchers', '~> 5.0'
 end
 group :development do
   gem 'web-console', '>= 3.3.0'
