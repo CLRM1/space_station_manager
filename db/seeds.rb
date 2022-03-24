@@ -8,6 +8,8 @@
 Astronaut.destroy_all
 SpaceStation.destroy_all
 
-iss = SpaceStation.create!(name: 'ISS', habitable: true, max_occupants: 7)
+iss = SpaceStation.create!(name: 'International Space Station', habitable: true, max_occupants: 7)
+
+ess = SpaceStation.create!(name: 'European Space Station', habitable: false, max_occupants: 7)
 
 walker = Astronaut.create!(name: 'Shannon Walker', active: true, years_active: 10, space_station_id: iss.id)
