@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_24_212743) do
+ActiveRecord::Schema.define(version: 2022_03_24_214716) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 2022_03_24_212743) do
     t.string "name"
     t.boolean "active"
     t.integer "years_active"
+    t.bigint "space_station_id"
+    t.index ["space_station_id"], name: "index_astronauts_on_space_station_id"
   end
 
   create_table "space_stations", force: :cascade do |t|
@@ -28,4 +30,5 @@ ActiveRecord::Schema.define(version: 2022_03_24_212743) do
     t.integer "max_occupants"
   end
 
+  add_foreign_key "astronauts", "space_stations"
 end
