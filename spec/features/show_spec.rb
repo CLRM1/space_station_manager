@@ -13,9 +13,10 @@ RSpec.describe 'space_station show page', type: :feature do
 
   it 'displays the names of each space_station' do
     station = SpaceStation.create!(name: 'ISS', habitable: true, max_occupants: 7)
-    visit "/space_stations/#{station.id}"
-    save_and_open
+    station_2 = SpaceStation.create!(name: 'ESA', habitable: false, max_occupants: 4)
+    visit "/space_stations"
+    save_and_open_page
     expect(page).to have_content(station.name)
-    # expect(page).to_not have_content(station_2.name)
+    expect(page).to have_content(station_2.name)
   end
 end
