@@ -10,15 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_23_074301) do
+ActiveRecord::Schema.define(version: 2022_03_24_212743) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "astronauts", force: :cascade do |t|
+    t.integer "station_id"
+    t.string "name"
+    t.boolean "active"
+    t.integer "years_active"
+  end
+
   create_table "space_stations", force: :cascade do |t|
     t.string "name"
     t.boolean "habitable"
-    t.bigint "max_occupants"
+    t.integer "max_occupants"
   end
 
 end

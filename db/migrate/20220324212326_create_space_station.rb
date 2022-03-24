@@ -1,9 +1,11 @@
-class CreateSpaceStations < ActiveRecord::Migration[5.2]
+class CreateSpaceStation < ActiveRecord::Migration[5.2]
   def change
     create_table :space_stations do |t|
       t.string :name
       t.boolean :habitable
-      t.bigint :max_occupants
+      t.integer :max_occupants
+
+      t.timestamps
     end
   end
 end
