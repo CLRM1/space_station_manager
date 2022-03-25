@@ -11,7 +11,6 @@ RSpec.describe 'space_station show page', type: :feature do
   it 'displays each astronaut in the system including the astronauts attributes' do
     visit "/astronauts"
     expect(page).to have_content(@walker.name)
-    save_and_open_page
     expect(page).to have_content(@walker.active)
     expect(page).to have_content(@walker.years_active)
   end
