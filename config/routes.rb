@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   get '/space_stations/:id', to: 'space_station#show'
   get '/astronauts', to: 'astronaut#index'
   get '/astronauts/:id', to: 'astronaut#show'
+  get '/space_stations/:station_id/astronauts', to: 'space_station_astronaut#index'
 end
