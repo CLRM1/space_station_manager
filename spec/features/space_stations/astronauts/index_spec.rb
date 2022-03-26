@@ -8,7 +8,7 @@ RSpec.describe 'space_station show page', type: :feature do
     @kelly = Astronaut.create!(name: 'Scott Kelly', active: false, years_active: 7, space_station_id: @station.id)
   end
 
-  it 'displays the names of each space_station' do
+  it 'displays name of each astronaut and their attributes for a station' do
     visit "/space_stations/#{@station.id}/astronauts"
     expect(page).to have_content(@walker.name)
     expect(page).to have_content(@walker.active)
