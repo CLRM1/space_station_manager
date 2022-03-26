@@ -13,4 +13,13 @@ RSpec.describe 'space_station show page', type: :feature do
     expect(page).to have_content(@station.name)
     expect(page).to have_content(@station_2.name)
   end
+
+  it 'displays the space_stations by most recently created' do
+    visit "/space_stations"
+    expect(page.text.index("ISS")).to be < page.text.index("ESA")
+    expect(page).to have_content(@station_2.name)
+    expect(page).to have_content(@station.name)
+    expect(page).to have_content(@station.created_at)
+    expect(page).to have_content(@station_2.created_at)
+  end
 end

@@ -1,4 +1,4 @@
 <h1>Space Stations</h1>
 <% @stations.each do |station| %>
-  <p><%= station.name %></p>
+  <p><%= station.name + station.created_at_string %></p>
 <% end %>
