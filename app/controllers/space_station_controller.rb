@@ -5,6 +5,7 @@ class SpaceStationController < ApplicationController
 
   def show
     @station = SpaceStation.find(params[:id])
+    @astronauts = Astronaut.all
   end
-  
+
 end
