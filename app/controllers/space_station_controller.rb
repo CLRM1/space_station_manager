@@ -17,7 +17,6 @@ class SpaceStationController < ApplicationController
   end
 
   def edit
-    # require 'pry'; binding.pry
     @station = SpaceStation.find(params[:station_id])
   end
 

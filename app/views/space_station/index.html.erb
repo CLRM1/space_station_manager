@@ -2,6 +2,6 @@
 <%= link_to 'Astronaut Index', '/astronauts' %>
 <h1>Space Stations</h1>
 <% @stations.each do |station| %>
-  <p><%= station.name + station.created_at_string %></p>
+  <p><%= station.name + ". Created at: " + station.created_at.to_s %></p>
 <% end %>
 <%= link_to 'New Space Station', '/space_stations/new' %>
