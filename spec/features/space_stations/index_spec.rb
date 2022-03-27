@@ -41,4 +41,29 @@ RSpec.describe 'space_station show page', type: :feature do
     expect(page).to have_content(@station.name)
     expect(page).to have_content(@station_2.name)
   end
+
+#   User Story 11, Parent Creation
+#
+# As a visitor
+# When I visit the Parent Index page
+# Then I see a link to create a new Parent record, "New Parent"
+# When I click this link
+# Then I am taken to '/parents/new' where I  see a form for a new parent record
+# When I fill out the form with a new parent's attributes:
+# And I click the button "Create Parent" to submit the form
+# Then a `POST` request is sent to the '/parents' route,
+# a new parent record is created,
+# and I am redirected to the Parent Index page where I see the new Parent displayed.
+  it 'displays a link that creates a new space station and redirects to the space station index' do
+    visit "/space_stations"
+    expect(page).to have_link('New Space Station')
+    click_link 'New Space Station'
+    expect(current_path).to eq('/space_stations/new')
+
+    fill_in 'name','active','years_active' with: 'Buzz Aldrin',false,20
+    click_on 'Create Space Station'
+
+    expect(current_path).to eq('/space_stations')
+    expect(page).to have_content('Buzz Aldrin')
+  end
 end
