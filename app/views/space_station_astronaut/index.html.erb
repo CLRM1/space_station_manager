@@ -1,0 +1,10 @@
+<%= link_to 'Space Station Index', '/space_stations' %>
+<%= link_to 'Astronaut Index', '/astronauts' %>
+<% @astronauts.each do |astronaut| %>
+<p>Name: <%= astronaut.name %></p>
+<p>Active: <%= astronaut.active %></p>
+<p>Years active:<%= astronaut.years_active %></p>
+<p>Id: <%= astronaut.id %></p>
+<p>Created at: <%= astronaut.created_at %></p>
+<p>Updated at: <%= astronaut.updated_at %></p>
+<% end %>

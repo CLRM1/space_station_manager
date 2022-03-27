@@ -1,0 +1,12 @@
+<%= link_to 'Space Station Index', '/space_stations' %>
+<%= link_to 'Astronaut Index', '/astronauts' %>
+<h1><%= @station.name %></h1>
+<p>
+  Number of astronauts: <%= @station.astronauts.count %>
+  <%= link_to 'Astronauts', "/space_stations/#{@station.id}/astronauts" %>
+</p>
+<p>Habitable: <%= @station.habitable %></p>
+<p>Max number of occupants: <%= @station.max_occupants %></p>
+<p>Station id: <%= @station.id %></p>
+<p>Created at: <%= @station.created_at %></p>
+<p>Updated at: <%= @station.updated_at %></p>
