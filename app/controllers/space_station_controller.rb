@@ -3,10 +3,6 @@ class SpaceStationController < ApplicationController
     @stations = SpaceStation.all.order("created_at desc")
   end
 
-  def show
-    @station = SpaceStation.find(params[:id])
-  end
-
   def new
   end
 
@@ -18,5 +14,9 @@ class SpaceStationController < ApplicationController
     )
     station.save
     redirect_to '/space_stations'
+  end
+
+  def show
+    @station = SpaceStation.find(params[:id])
   end
 end
