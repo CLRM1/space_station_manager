@@ -17,4 +17,14 @@ RSpec.describe 'space_station show page', type: :feature do
     expect(page).to have_content(@kelly.active)
     expect(page).to have_content(@kelly.years_active)
   end
+
+    it 'displays a link at the top of the page that takes me to the astronauts index' do
+      visit "/space_stations/#{@station.id}/astronauts"
+      expect(page).to have_link('Astronaut Index')
+      click_link 'Astronaut Index'
+      expect(current_path).to eq('/astronauts')
+      expect(current_path).to eq('/astronauts')
+      expect(page).to have_content(@walker.name)
+      expect(page).to have_content(@kelly.name)
+    end
 end
