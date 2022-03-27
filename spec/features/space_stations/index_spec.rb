@@ -32,11 +32,7 @@ RSpec.describe 'space_station show page', type: :feature do
     expect(page).to have_content(@walker.name)
     expect(page).to have_content(@kelly.name)
   end
-#   User Story 9, Parent Index Link
-#
-# As a visitor
-# When I visit any page on the site
-# Then I see a link at the top of the page that takes me to the Parent Index
+
   it 'displays a link at the top of the page that takes me to the space stations index' do
     visit "/space_stations"
     expect(page).to have_link('Space Station Index')

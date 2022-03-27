@@ -44,17 +44,12 @@ RSpec.describe 'space_station show page', type: :feature do
     expect(page).to have_content(@station_2.name)
   end
 
-  # User Story 10, Parent Child Index Link
-
-  # As a visitor
-  # When I visit a parent show page ('/parents/:id')
-  # Then I see a link to take me to that parent's `child_table_name` page ('/parents/:id/child_table_name')
-    it 'displays a link to the astronauts on a space station show page' do
-      visit "/space_stations/#{@station.id}"
-      expect(page).to have_link('Astronauts')
-      click_link 'Astronauts'
-      expect(current_path).to eq("/space_stations/#{@station.id}/astronauts")
-      expect(page).to have_content(@walker.name)
-      expect(page).to have_content(@kelly.name)
-    end
+  it 'displays a link to the astronauts on a space station show page' do
+    visit "/space_stations/#{@station.id}"
+    expect(page).to have_link('Astronauts')
+    click_link 'Astronauts'
+    expect(current_path).to eq("/space_stations/#{@station.id}/astronauts")
+    expect(page).to have_content(@walker.name)
+    expect(page).to have_content(@kelly.name)
+  end
 end
