@@ -18,10 +18,10 @@ RSpec.describe 'space_station show page', type: :feature do
 
   it 'displays the count of astronauts associated with the space station' do
     visit "/space_stations/#{@station.id}"
-    expect(page).to have_content(@station.astronaut_count)
+    # expect(page).to have_content(@station.astronaut_count)
     expect(page).to have_content("Number of astronauts: 2")
     visit "/space_stations/#{@station_2.id}"
-    expect(page).to have_content(@station_2.astronaut_count)
+    # expect(page).to have_content(@station_2.astronaut_count)
     expect(page).to have_content("Number of astronauts: 1")
   end
 

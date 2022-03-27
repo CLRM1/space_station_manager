@@ -4,3 +4,4 @@
 <% @stations.each do |station| %>
   <p><%= station.name + station.created_at_string %></p>
 <% end %>
+<%= link_to 'New Space Station', '/space_stations/new' %>

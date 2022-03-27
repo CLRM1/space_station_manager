@@ -1,0 +1,21 @@
+<%= form_with url:"/space_stations", method: :post do |form| %>
+  <p>Name: </p>
+  <%= form.text_field :name  %>
+  <p>Habitable: </p>
+  <%= form.text_field :habitable %>
+  <p>Max occupants: </p>
+  <%= form.text_field :max_occupants %>
+  <p><%= form.submit 'Create Space Station' %></p>
+<% end %>
+
+<!-- <form action="/space_stations" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <p>Enter a new space_station:</p>
+  <p>Name: </p>
+  <input type='text' name='space_station[:name]'/><br/>
+  <p>Habitable: </p>
+  <textarea name='space_station[:habitable]'></textarea><br/>
+  <p>Max occupants: </p>
+  <textarea name='space_station[:max_occupants]'></textarea><br/>
+  <input type='submit'/>
+</form> -->
