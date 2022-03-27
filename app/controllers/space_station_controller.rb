@@ -16,6 +16,22 @@ class SpaceStationController < ApplicationController
     redirect_to '/space_stations'
   end
 
+  def edit
+    # require 'pry'; binding.pry
+    @station = SpaceStation.find(params[:station_id])
+  end
+
+  def update
+    station = SpaceStation.find(params[:station_id])
+    station.update({
+              name: params[:name],
+              habitable: params[:habitable],
+              max_occupants: params[:max_occupants]
+              })
+    station.save
+    redirect_to "/space_stations/#{station.id}"
+  end
+
   def show
     @station = SpaceStation.find(params[:id])
   end

@@ -51,10 +51,9 @@ RSpec.describe 'space_station show page', type: :feature do
     fill_in 'name', with: 'Denver Space Station'
     fill_in 'habitable', with: true
     fill_in 'max_occupants', with: 20
-    save_and_open_page
     click_on 'Create Space Station'
+    
     expect(current_path).to eq('/space_stations')
     expect(page).to have_content('Denver Space Station')
-    save_and_open_page
   end
 end

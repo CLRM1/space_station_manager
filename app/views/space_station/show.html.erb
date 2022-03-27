@@ -10,3 +10,5 @@
 <p>Station id: <%= @station.id %></p>
 <p>Created at: <%= @station.created_at %></p>
 <p>Updated at: <%= @station.updated_at %></p>
+
+<%= link_to 'Update Space Station', "/space_stations/#{@station.id}/edit"%>
