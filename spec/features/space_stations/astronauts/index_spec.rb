@@ -56,11 +56,12 @@ RSpec.describe 'space_station show page', type: :feature do
     click_link 'Create Astronaut'
     expect(current_path).to eq("/space_stations/#{@station.id}/astronauts/new")
 
-    fill_in 'name', with: 'Canadian Space Station'
-    fill_in 'habitable', with: false
-    fill_in 'max_occupants', with: 100
+    fill_in 'name', with: 'Buzz Lightyear'
+    fill_in 'active', with: true
+    fill_in 'years_active', with: 25
     click_on 'Create Astronaut'
     expect(current_path).to eq("/space_stations/#{@station.id}/astronauts")
-    expect(page).to have_content('Canadian Space Station')
+    save_and_open_page
+    expect(page).to have_content('Buzz Lightyear')
   end
 end
