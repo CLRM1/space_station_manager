@@ -22,7 +22,6 @@ RSpec.describe 'space_station show page', type: :feature do
     expect(current_path).to eq('/astronauts')
     expect(current_path).to eq('/astronauts')
     expect(page).to have_content(@walker.name)
-    expect(page).to have_content(@kelly.name)
   end
 
   it 'displays a link at the top of the page that takes me to the space stations index' do
@@ -34,17 +33,6 @@ RSpec.describe 'space_station show page', type: :feature do
     expect(page).to have_content(@station_2.name)
   end
 
-#   User Story 14, Child Update
-#
-# As a visitor
-# When I visit a Child Show page
-# Then I see a link to update that Child "Update Child"
-# When I click the link
-# I am taken to '/child_table_name/:id/edit' where I see a form to edit the child's attributes:
-# When I click the button to submit the form "Update Child"
-# Then a `PATCH` request is sent to '/child_table_name/:id',
-# the child's data is updated,
-# and I am redirected to the Child Show page where I see the Child's updated information
   it 'displays a link to update the astronaut attributes' do
     visit "astronauts/#{@walker.id}"
     expect(page).to have_link('Update Astronaut')
