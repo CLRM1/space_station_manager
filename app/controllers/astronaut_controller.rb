@@ -6,7 +6,7 @@ class AstronautController < ApplicationController
   def show
     @astronaut = Astronaut.find(params[:id])
   end
-
+# move to new controller?
   def create
     station = SpaceStation.find(params[:station_id])
     astronaut = Astronaut.create!(
@@ -24,13 +24,16 @@ class AstronautController < ApplicationController
   end
 
   def update
-    astronaut = Astronaut.find(params[:id])
+    astronaut = Astronaut.find(params[:astronaut_id])
+    station_id = astronaut.space_station.id
     astronaut.update({
               name: params[:name],
-              habitable: params[:habitable],
-              max_occupants: params[:max_occupants]
+              active: params[:active],
+              years_active: params[:years_active],
+              id: params[:astronaut_id],
+              space_station_id: station_id
               })
     astronaut.save
-    redirect_to "/space_astronauts/#{astronaut.id}"
+    redirect_to "/astronauts/#{astronaut.id}"
   end
 end

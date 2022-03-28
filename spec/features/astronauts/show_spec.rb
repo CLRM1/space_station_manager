@@ -49,11 +49,11 @@ RSpec.describe 'space_station show page', type: :feature do
     visit "astronauts/#{@walker.id}"
     expect(page).to have_link('Update Astronaut')
     click_link 'Update Astronaut'
-    expect(current_path).to eq("astronauts/#{@walker.id}/edit")
+    expect(current_path).to eq("/astronauts/#{@walker.id}/edit")
     fill_in 'name', with: 'Sally Ride'
     fill_in 'active', with: false
     fill_in 'years_active', with: 15
-    click_link 'Save'
-    expect(current_path).to eq("astronauts/#{@walker.id}")
+    click_on 'Save'
+    expect(current_path).to eq("/astronauts/#{@walker.id}")
   end
 end
