@@ -6,4 +6,8 @@ class Astronaut < ApplicationRecord
   def self.active_astronauts
     where(active: 'true')
   end
+
+  def self.sorted_astronauts
+    order(:name)
+  end
 end
