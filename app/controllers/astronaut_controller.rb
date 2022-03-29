@@ -36,4 +36,13 @@ class AstronautController < ApplicationController
     astronaut.save
     redirect_to "/astronauts/#{astronaut.id}"
   end
+
+  def destroy
+    # astronaut = Astronaut.find(params[:id])
+    # require 'pry'; binding.pry
+    # station.astronauts.destroy_all
+    Astronaut.destroy(params[:astronaut_id])
+    # require 'pry'; binding.pry
+    redirect_to "/astronauts"
+  end
 end

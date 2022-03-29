@@ -10,8 +10,4 @@ class Astronaut < ApplicationRecord
   def self.sorted_astronauts
     order(:name)
   end
-
-  # def self.delete_astronauts
-  #   space_station.astronauts.destroy_all
-  # end
 end

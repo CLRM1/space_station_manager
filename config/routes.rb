@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   patch '/space_stations/:station_id', to: 'space_station#update'
   patch '/astronauts/:astronaut_id/', to: 'astronaut#update'
   delete '/space_stations/:station_id', to: 'space_station#destroy'
+  delete '/astronauts/:astronaut_id', to: 'astronaut#destroy'
 end
