@@ -40,4 +40,16 @@ RSpec.describe 'space_station show page', type: :feature do
     expect(page).to have_content(@hadfield.name)
     expect(page).to_not have_content(@kelly.name)
   end
+  
+  it 'displays a link to update each astronaut' do
+    visit '/astronauts'
+    click_link "Update Astronaut: #{@walker.name}"
+    expect(current_path).to eq("/astronauts/#{@walker.id}/edit")
+    fill_in 'name', with: 'Captain Kirk'
+    fill_in 'active', with: true
+    fill_in 'years_active', with: 40
+    click_on 'Save'
+    expect(current_path).to eq("/astronauts/#{@walker.id}")
+    expect(page).to have_content('Captain Kirk')
+  end
 end

@@ -60,4 +60,23 @@ RSpec.describe 'space_station show page', type: :feature do
     expect(current_path).to eq("/space_stations/#{@station.id}/astronauts")
     expect(page.text.index('Chris Hadfield')).to be < page.text.index('Neil Armstrong')
   end
+
+#   User Story 18, Child Update From Childs Index Page
+#
+# As a visitor
+# When I visit the `child_table_name` index page or a parent `child_table_name` index page
+# Next to every child, I see a link to edit that child's info
+# When I click the link
+# I should be taken to that `child_table_name` edit page where I can update its information just like in User Story 11
+it 'displays a link to update each astronaut' do
+  visit "/space_stations/#{@station.id}/astronauts"
+  click_link "Update Astronaut: #{@walker.name}"
+  expect(current_path).to eq("/astronauts/#{@walker.id}/edit")
+  fill_in 'name', with: 'Captain Kirk'
+  fill_in 'active', with: true
+  fill_in 'years_active', with: 40
+  click_on 'Save'
+  expect(current_path).to eq("/astronauts/#{@walker.id}")
+  expect(page).to have_content('Captain Kirk')
+end
 end
