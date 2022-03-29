@@ -63,4 +63,18 @@ RSpec.describe 'space_station show page', type: :feature do
     expect(current_path).to eq("/space_stations/#{@station.id}")
     expect(page).to have_content('Japanese Space Station')
   end
+
+  # As a visitor
+# When I visit a parent show page
+# Then I see a link to delete the parent
+# When I click the link "Delete Parent"
+# Then a 'DELETE' request is sent to '/parents/:id',
+# the parent is deleted, and all child records are deleted
+# and I am redirected to the parent index page where I no longer see this parent
+  it 'displays a link to delete the space station' do
+    visit "/space_stations/#{@station.id}"
+    click_link 'Delete Space Station'
+    expect(current_path).to eq('/space_stations')
+    expect(page).to_not have_content(@station.name)
+  end
 end
