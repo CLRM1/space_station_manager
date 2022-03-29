@@ -23,7 +23,6 @@ RSpec.describe 'space_station show page', type: :feature do
     expect(current_path).to eq('/astronauts')
     expect(current_path).to eq('/astronauts')
     expect(page).to have_content(@walker.name)
-    # expect(page).to have_content(@kelly.name)
   end
 
   it 'displays a link at the top of the page that takes me to the space stations index' do
@@ -35,11 +34,6 @@ RSpec.describe 'space_station show page', type: :feature do
     expect(page).to have_content(@station_2.name)
   end
 
-  # User Story 15, Child Index only shows `true` Records
-#
-# As a visitor
-# When I visit the child index
-# Then I only see records where the boolean column is `true`
   it 'displays only true astronaut records' do
     visit "/astronauts"
     expect(page).to have_content(@walker.name)
