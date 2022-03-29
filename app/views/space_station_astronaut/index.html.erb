@@ -1,5 +1,6 @@
 <%= link_to 'Space Station Index', '/space_stations' %>
 <%= link_to 'Astronaut Index', '/astronauts' %>
+<%= link_to 'Sort Alphabetically', "/space_stations/#{@station.id}/astronauts?sort=sorted_astronauts" %>
 <% @astronauts.each do |astronaut| %>
 <p>Name: <%= astronaut.name %></p>
 <p>Active: <%= astronaut.active %></p>
