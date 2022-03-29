@@ -4,7 +4,7 @@ RSpec.describe 'space_station show page', type: :feature do
   before(:each) do
     @station = SpaceStation.create!(name: 'ISS', habitable: true, max_occupants: 7)
     @station_2 = SpaceStation.create!(name: 'ESA', habitable: false, max_occupants: 4)
-    @walker = Astronaut.create!(name: 'Shanon Walker', active: true, years_active: 10, space_station_id: @station.id)
+    @walker = Astronaut.create!(name: 'Shanon Walker', active: true, years_active: 11, space_station_id: @station.id)
     @kelly = Astronaut.create!(name: 'Scott Kelly', active: false, years_active: 7, space_station_id: @station.id)
     @hadfield = Astronaut.create!(name: 'Chris Hadfield', active: true, years_active: 7, space_station_id: @station.id)
     @armstrong = Astronaut.create!(name: 'Neil Armstrong', active: false, years_active: 7, space_station_id: @station.id)
@@ -61,15 +61,31 @@ RSpec.describe 'space_station show page', type: :feature do
     expect(page.text.index('Chris Hadfield')).to be < page.text.index('Neil Armstrong')
   end
 
-it 'displays a link to update each astronaut' do
-  visit "/space_stations/#{@station.id}/astronauts"
-  click_link "Update Astronaut: #{@walker.name}"
-  expect(current_path).to eq("/astronauts/#{@walker.id}/edit")
-  fill_in 'name', with: 'Captain Kirk'
-  fill_in 'active', with: true
-  fill_in 'years_active', with: 40
-  click_on 'Save'
-  expect(current_path).to eq("/astronauts/#{@walker.id}")
-  expect(page).to have_content('Captain Kirk')
-end
+  it 'displays a link to update each astronaut' do
+    visit "/space_stations/#{@station.id}/astronauts"
+    click_link "Update Astronaut: #{@walker.name}"
+    expect(current_path).to eq("/astronauts/#{@walker.id}/edit")
+    fill_in 'name', with: 'Captain Kirk'
+    fill_in 'active', with: true
+    fill_in 'years_active', with: 40
+    click_on 'Save'
+    expect(current_path).to eq("/astronauts/#{@walker.id}")
+    expect(page).to have_content('Captain Kirk')
+  end
+
+  # User Story 21, Display Records Over a Given Threshold
+# As a visitor
+# When I visit the Parent's children Index Page
+# I see a form that allows me to input a number value
+# When I input a number value and click the submit button that reads 'Only return records with more than `number` of `column_name`'
+# Then I am brought back to the current index page with only the records that meet that threshold shown.
+  it 'displays astronauts with years_active over a given threshold' do
+    visit "/space_stations/#{@station.id}/astronauts"
+    fill_in 'years_active', with: 10
+    click_on 'filter'
+    expect(current_path).to eq("/space_stations/#{@station.id}/astronauts")
+    expect(page).to have_content(@walker.id)
+    expect(page).to_not have_content(@kelly.id)
+
+  end
 end
