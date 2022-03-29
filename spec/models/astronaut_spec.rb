@@ -14,7 +14,7 @@ RSpec.describe Astronaut, type: :model do
 
   describe 'class methods' do
     before(:each) do
-      @station = SpaceStation.create(name: 'Island Space Station', habitable: true, max_occupants: 10)
+      @station = SpaceStation.create(name: 'Japanese Space Station', habitable: true, max_occupants: 10)
       @astronaut_1 = Astronaut.create!(name: 'Kalpana Chawla', active: true, years_active: 5,  space_station_id: @station.id)
       @astronaut_2 = Astronaut.create!(name: 'Jessica Meir', active: true, years_active: 5,  space_station_id: @station.id)
       @astronaut_3 = Astronaut.create!(name: 'Peggy Whitson', active: false, years_active: 5,  space_station_id: @station.id)
