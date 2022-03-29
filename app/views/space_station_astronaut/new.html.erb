@@ -1,0 +1,9 @@
+<%= form_with url:"/space_stations/#{@station.id}/astronauts", local: true, method: :post do |form| %>
+<p>Name: </p>
+<%= form.text_field :name %>
+<p>Active: </p>
+<%= form.text_field :active %>
+<p>Years active: </p>
+<%= form.text_field :years_active %>
+<p><%= form.submit 'Create Astronaut' %></p>
+<% end %>

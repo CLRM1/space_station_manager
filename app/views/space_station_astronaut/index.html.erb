@@ -1,10 +1,14 @@
 <%= link_to 'Space Station Index', '/space_stations' %>
 <%= link_to 'Astronaut Index', '/astronauts' %>
+<%= link_to 'Sort Alphabetically', "/space_stations/#{@station.id}/astronauts?sort=sorted_astronauts" %>
 <% @astronauts.each do |astronaut| %>
-<p>Name: <%= astronaut.name %></p>
+<p>Name: <%= astronaut.name %>
+  <%= link_to "Update Astronaut: #{astronaut.name}", "/astronauts/#{astronaut.id}/edit" %>
+</p>
 <p>Active: <%= astronaut.active %></p>
 <p>Years active:<%= astronaut.years_active %></p>
 <p>Id: <%= astronaut.id %></p>
 <p>Created at: <%= astronaut.created_at %></p>
 <p>Updated at: <%= astronaut.updated_at %></p>
 <% end %>
+<%= link_to 'Create Astronaut', "/space_stations/#{@station.id}/astronauts/new" %>

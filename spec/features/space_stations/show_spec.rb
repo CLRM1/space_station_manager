@@ -18,10 +18,8 @@ RSpec.describe 'space_station show page', type: :feature do
 
   it 'displays the count of astronauts associated with the space station' do
     visit "/space_stations/#{@station.id}"
-    expect(page).to have_content(@station.astronaut_count)
     expect(page).to have_content("Number of astronauts: 2")
     visit "/space_stations/#{@station_2.id}"
-    expect(page).to have_content(@station_2.astronaut_count)
     expect(page).to have_content("Number of astronauts: 1")
   end
 
@@ -32,7 +30,6 @@ RSpec.describe 'space_station show page', type: :feature do
     expect(current_path).to eq('/astronauts')
     expect(current_path).to eq('/astronauts')
     expect(page).to have_content(@walker.name)
-    expect(page).to have_content(@kelly.name)
   end
 
   it 'displays a link at the top of the page that takes me to the space stations index' do
@@ -51,5 +48,19 @@ RSpec.describe 'space_station show page', type: :feature do
     expect(current_path).to eq("/space_stations/#{@station.id}/astronauts")
     expect(page).to have_content(@walker.name)
     expect(page).to have_content(@kelly.name)
+  end
+  it 'displays a link to update the space station on a space station show page' do
+    visit "/space_stations/#{@station.id}"
+    expect(page). to have_link('Update Space Station')
+    click_link 'Update Space Station'
+    expect(current_path).to eq("/space_stations/#{@station.id}/edit")
+
+    fill_in 'name', with: 'Japanese Space Station'
+    fill_in 'habitable', with: false
+    fill_in 'max_occupants', with: 30
+    click_on 'Save'
+
+    expect(current_path).to eq("/space_stations/#{@station.id}")
+    expect(page).to have_content('Japanese Space Station')
   end
 end

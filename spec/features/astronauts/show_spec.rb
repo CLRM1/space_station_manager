@@ -22,7 +22,6 @@ RSpec.describe 'space_station show page', type: :feature do
     expect(current_path).to eq('/astronauts')
     expect(current_path).to eq('/astronauts')
     expect(page).to have_content(@walker.name)
-    expect(page).to have_content(@kelly.name)
   end
 
   it 'displays a link at the top of the page that takes me to the space stations index' do
@@ -32,5 +31,17 @@ RSpec.describe 'space_station show page', type: :feature do
     expect(current_path).to eq('/space_stations')
     expect(page).to have_content(@station.name)
     expect(page).to have_content(@station_2.name)
+  end
+
+  it 'displays a link to update the astronaut attributes' do
+    visit "astronauts/#{@walker.id}"
+    expect(page).to have_link('Update Astronaut')
+    click_link 'Update Astronaut'
+    expect(current_path).to eq("/astronauts/#{@walker.id}/edit")
+    fill_in 'name', with: 'Sally Ride'
+    fill_in 'active', with: false
+    fill_in 'years_active', with: 15
+    click_on 'Save'
+    expect(current_path).to eq("/astronauts/#{@walker.id}")
   end
 end

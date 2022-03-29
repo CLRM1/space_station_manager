@@ -1,0 +1,9 @@
+<%= form_with url:"/space_stations/#{@station.id}", local: true, method: :patch do |form| %>
+  <p>Name: </p>
+  <%= form.text_field :name  %>
+  <p>Habitable: </p>
+  <%= form.text_field :habitable %>
+  <p>Max occupants: </p>
+  <%= form.text_field :max_occupants %>
+  <p><%= form.submit 'Save' %></p>
+<% end %>
