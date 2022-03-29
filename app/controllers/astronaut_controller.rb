@@ -1,8 +1,6 @@
 class AstronautController < ApplicationController
   def index
-    # @astronauts = Astronaut.all
-    @astronauts = Astronaut.active_astronauts
-    # require 'pry'; binding.pry
+    @astronauts = Astronaut.all
   end
 
   def show
