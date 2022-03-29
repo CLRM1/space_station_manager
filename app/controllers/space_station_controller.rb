@@ -31,6 +31,15 @@ class SpaceStationController < ApplicationController
     redirect_to "/space_stations/#{station.id}"
   end
 
+  def destroy
+    station = SpaceStation.find(params[:station_id])
+    # require 'pry'; binding.pry
+    station.astronauts.destroy_all
+    SpaceStation.destroy(params[:station_id])
+    # require 'pry'; binding.pry
+    redirect_to "/space_stations"
+  end
+
   def show
     @station = SpaceStation.find(params[:id])
   end
