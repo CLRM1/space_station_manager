@@ -6,5 +6,4 @@ class SpaceStation < ApplicationRecord
     stations = SpaceStation.all
     stations.order("created_at desc")
   end
-
 end

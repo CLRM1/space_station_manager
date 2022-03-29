@@ -6,7 +6,6 @@ class SpaceStationAstronautController < ApplicationController
     else
       @astronauts = @station.astronauts
     end
-    # @astronauts = @station.astronauts
   end
 
   def new

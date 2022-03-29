@@ -56,24 +56,17 @@ RSpec.describe 'space_station show page', type: :feature do
     expect(page).to have_content('Denver Space Station')
   end
 
-  # User Story 17, Parent Update From Parent Index Page
-
-# As a visitor
-# When I visit the parent index page
-# Next to every parent, I see a link to edit that parent's info
-# When I click the link
-# I should be taken to that parents edit page where I can update its information just like in User Story 4
  it 'displays a link next to each space station to edit the space station' do
    visit '/space_stations'
-   click_link 'Update Station Info'
-   expect(current_path).to eq("/stations/#{@station.id}/edit")
+   click_link "Update #{@station.name}"
+   expect(current_path).to eq("/space_stations/#{@station.id}/edit")
 
    fill_in 'name', with: 'Costa Rican Space Station'
    fill_in 'habitable', with: true
    fill_in 'max_occupants', with: 20
    click_on 'Save'
 
-   expect(current_path).to eq('/space_stations')
+   expect(current_path).to eq("/space_stations/#{@station.id}")
    expect(page).to have_content('Costa Rican Space Station')
  end
 end
