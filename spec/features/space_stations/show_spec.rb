@@ -49,20 +49,6 @@ RSpec.describe 'space_station show page', type: :feature do
     expect(page).to have_content(@walker.name)
     expect(page).to have_content(@kelly.name)
   end
-  it 'displays a link to update the space station on a space station show page' do
-    visit "/space_stations/#{@station.id}"
-    expect(page). to have_link('Update Space Station')
-    click_link 'Update Space Station'
-    expect(current_path).to eq("/space_stations/#{@station.id}/edit")
-
-    fill_in 'name', with: 'Japanese Space Station'
-    fill_in 'habitable', with: false
-    fill_in 'max_occupants', with: 30
-    click_on 'Save'
-
-    expect(current_path).to eq("/space_stations/#{@station.id}")
-    expect(page).to have_content('Japanese Space Station')
-  end
 
   it 'displays a link to delete the space station' do
     visit "/space_stations/#{@station.id}"

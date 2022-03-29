@@ -28,5 +28,4 @@ RSpec.describe Astronaut, type: :model do
       expect(Astronaut.active_astronauts).to eq([@astronaut_1, @astronaut_2])
     end
   end
-
 end
