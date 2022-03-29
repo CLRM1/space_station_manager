@@ -47,8 +47,26 @@ RSpec.describe 'space_station show page', type: :feature do
     fill_in 'active', with: true
     fill_in 'years_active', with: 25
     click_on 'Create Astronaut'
-    
+
     expect(current_path).to eq("/space_stations/#{@station.id}/astronauts")
     expect(page).to have_content('Buzz Lightyear')
+  end
+
+  #   User Story 16, Sort Parent's Children in Alphabetical Order by name
+#
+# As a visitor
+# When I visit the Parent's children Index Page
+# Then I see a link to sort children in alphabetical order
+# When I click on the link
+# I'm taken back to the Parent's children Index Page where I see all of the parent's children in alphabetical order
+  it 'displays a link that sorts the astronauts in alphabetical order' do
+    visit "/space_stations/#{@station.id}/astronauts"
+    # save_and_open_page
+    expect(page).to have_link('Sort Alphabetically')
+    click_link 'Sort Alphabetically'
+    # require 'pry'; binding.pry
+    expect(current_path).to eq("/space_stations/#{@station.id}/astronauts")
+    save_and_open_page
+    expect(page.text.index('Chris Hadfield')).to be < page.text.index('Neil Armstrong')
   end
 end
