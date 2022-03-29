@@ -1,6 +1,6 @@
 class SpaceStationController < ApplicationController
   def index
-    @stations = SpaceStation.all.order("created_at desc")
+    @stations = SpaceStation.ordered_sations
   end
 
   def new
