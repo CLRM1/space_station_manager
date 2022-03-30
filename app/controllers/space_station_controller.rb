@@ -32,6 +32,7 @@ class SpaceStationController < ApplicationController
   end
 
   def destroy
+    # require 'pry'; binding.pry
     station = SpaceStation.find(params[:station_id])
     # require 'pry'; binding.pry
     station.astronauts.destroy_all
