@@ -79,13 +79,12 @@ RSpec.describe 'space_station show page', type: :feature do
 # I see a form that allows me to input a number value
 # When I input a number value and click the submit button that reads 'Only return records with more than `number` of `column_name`'
 # Then I am brought back to the current index page with only the records that meet that threshold shown.
-  it 'displays astronauts with years_active over a given threshold' do
+  xit 'displays astronauts with years_active over a given threshold' do
     visit "/space_stations/#{@station.id}/astronauts"
-    fill_in 'years_active', with: 10
-    click_on 'filter'
+    fill_in 'years_active_min', with: 10
+    click_on 'Only return astronauts with more than the requested years_active'
     expect(current_path).to eq("/space_stations/#{@station.id}/astronauts")
     expect(page).to have_content(@walker.id)
     expect(page).to_not have_content(@kelly.id)
-
   end
 end
