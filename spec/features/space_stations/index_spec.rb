@@ -48,12 +48,10 @@ RSpec.describe 'space_station show page', type: :feature do
     visit '/space_stations'
     click_link "Update"
     expect(current_path).to eq("/space_stations/#{@station.id}/edit")
-
     fill_in 'name', with: 'Costa Rican Space Station'
     fill_in 'habitable', with: true
     fill_in 'max_occupants', with: 20
     click_on 'Save'
-
     expect(current_path).to eq("/space_stations/#{@station.id}")
     expect(page).to have_content('Costa Rican Space Station')
   end

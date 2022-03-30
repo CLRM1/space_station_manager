@@ -55,17 +55,13 @@ RSpec.describe 'space_station show page', type: :feature do
     expect(page).to have_content('Captain Kirk')
   end
 
-  describe 'delete astronaut' do
-    it 'displays a link to delete each astronaut' do
-      Astronaut.destroy_all
-      SpaceStation.destroy_all
-      @station = SpaceStation.create!(name: 'ISS', habitable: true, max_occupants: 7)
-      @hadfield = Astronaut.create!(name: 'Chris Hadfield', active: true, years_active: 7, space_station_id: @station.id)
-      visit '/astronauts'
-      expect(page).to have_content(@hadfield.name)
-      click_on 'Delete'
-      expect(current_path).to eq('/astronauts')
-      expect(page).to_not have_content(@hadfield.name)
-    end
+  it 'displays a link to delete each astronaut' do
+    Astronaut.destroy_all
+    @hadfield = Astronaut.create!(name: 'Chris Hadfield', active: true, years_active: 7, space_station_id: @station.id)
+    visit '/astronauts'
+    expect(page).to have_content(@hadfield.name)
+    click_on 'Delete'
+    expect(current_path).to eq('/astronauts')
+    expect(page).to_not have_content(@hadfield.name)
   end
 end
