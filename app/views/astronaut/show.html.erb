@@ -6,7 +6,5 @@
 <p>Id: <%= @astronaut.id %></p>
 <p>Created at: <%= @astronaut.created_at %></p>
 <p>Updated at: <%= @astronaut.updated_at %></p>
-<%= link_to 'Update Astronaut', "/astronauts/#{@astronaut.id}/edit" %>
-<%= form_with url:"/astronauts/#{@astronaut.id}", local: true, method: :delete do |form| %>
-  <p><%= form.submit 'Delete Astronaut' %></p>
-<% end %>
+<%= link_to 'Update', "/astronauts/#{@astronaut.id}/edit" %>
+<%= link_to 'Delete', "/astronauts/#{@astronaut.id}", method: :delete %>

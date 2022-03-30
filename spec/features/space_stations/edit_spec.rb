@@ -11,8 +11,8 @@ RSpec.describe 'space_station show page', type: :feature do
 
   it 'displays a link to update the space station on a space station show page' do
     visit "/space_stations/#{@station.id}"
-    expect(page). to have_link('Update Space Station')
-    click_link 'Update Space Station'
+    expect(page). to have_link('Update')
+    click_link 'Update'
     expect(current_path).to eq("/space_stations/#{@station.id}/edit")
 
     fill_in 'name', with: 'Japanese Space Station'

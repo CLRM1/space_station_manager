@@ -11,7 +11,5 @@
 <p>Created at: <%= @station.created_at %></p>
 <p>Updated at: <%= @station.updated_at %></p>
 
-<%= link_to 'Update Space Station', "/space_stations/#{@station.id}/edit"%>
-<%= form_with url:"/space_stations/#{@station.id}", local: true, method: :delete do |form| %>
-  <p><%= form.submit 'Delete Space Station' %></p>
-<% end %>
+<%= link_to 'Update', "/space_stations/#{@station.id}/edit"%>
+<%= link_to 'Delete', "/space_stations/#{@station.id}", method: :delete%>
