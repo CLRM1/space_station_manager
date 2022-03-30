@@ -1,8 +1,8 @@
 <%= link_to 'Space Station Index', '/space_stations' %>
 <%= link_to 'Astronaut Index', '/astronauts' %>
 <%= link_to 'Sort Alphabetically', "/space_stations/#{@station.id}/astronauts?sort=sorted_astronauts" %>
-<%= form_with url:"/space_stations/#{@station.id}/astronauts", method: :get, local: true do |form| %>
-  <%= form.text_field :years_active_min %>
+<%= form_with url:"/space_stations/#{@station.id}/astronauts?filtered=true", method: :get, local: true do |form| %>
+  <%= form.text_field :years_active_min  %>
   <%= form.submit 'Only return astronauts with more than the requested years_active' %>
 <% end %>
 
@@ -15,5 +15,6 @@
 <p>Id: <%= astronaut.id %></p>
 <p>Created at: <%= astronaut.created_at %></p>
 <p>Updated at: <%= astronaut.updated_at %></p>
+<br>
 <% end %>
 <%= link_to 'Create Astronaut', "/space_stations/#{@station.id}/astronauts/new" %>

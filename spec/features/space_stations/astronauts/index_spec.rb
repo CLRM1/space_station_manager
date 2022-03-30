@@ -73,13 +73,7 @@ RSpec.describe 'space_station show page', type: :feature do
     expect(page).to have_content('Captain Kirk')
   end
 
-  # User Story 21, Display Records Over a Given Threshold
-# As a visitor
-# When I visit the Parent's children Index Page
-# I see a form that allows me to input a number value
-# When I input a number value and click the submit button that reads 'Only return records with more than `number` of `column_name`'
-# Then I am brought back to the current index page with only the records that meet that threshold shown.
-  xit 'displays astronauts with years_active over a given threshold' do
+  it 'displays astronauts with years_active over a given threshold' do
     visit "/space_stations/#{@station.id}/astronauts"
     fill_in 'years_active_min', with: 10
     click_on 'Only return astronauts with more than the requested years_active'

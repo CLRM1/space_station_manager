@@ -52,14 +52,7 @@ RSpec.describe 'space_station show page', type: :feature do
     expect(current_path).to eq("/astronauts/#{@walker.id}")
     expect(page).to have_content('Captain Kirk')
   end
-
-#   User Story 23, Child Delete From Childs Index Page
-#
-# As a visitor
-# When I visit the `child_table_name` index page or a parent `child_table_name` index page
-# Next to every child, I see a link to delete that child
-# When I click the link
-# I should be taken to the `child_table_name` index page where I no longer see that child
+  
   describe 'delete astronaut' do
     it 'displays a link to delete each astronaut' do
       Astronaut.destroy_all

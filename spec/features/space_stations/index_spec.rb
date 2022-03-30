@@ -54,6 +54,7 @@ RSpec.describe 'space_station show page', type: :feature do
     expect(current_path).to eq("/space_stations/#{@station.id}")
     expect(page).to have_content('Costa Rican Space Station')
   end
+  
   describe 'delete space stations' do
     it 'displays a link to delete each parent' do
       Astronaut.destroy_all

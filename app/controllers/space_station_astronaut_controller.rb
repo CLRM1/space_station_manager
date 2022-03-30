@@ -1,12 +1,11 @@
 class SpaceStationAstronautController < ApplicationController
   def index
-    # require 'pry'; binding.pry
     @station = SpaceStation.find(params[:station_id])
     if params[:sort] == 'sorted_astronauts'
-      # require 'pry'; binding.pry
       @astronauts = @station.astronauts.sorted_astronauts
-    # elsif params[:years_active_min] >= 0
-      # require 'pry'; binding.pry
+    elsif params[:years_active_min]
+      number = params[:years_active_min]
+      @astronauts = @station.astronauts.where("years_active > #{number}")
     else
       @astronauts = @station.astronauts
     end
