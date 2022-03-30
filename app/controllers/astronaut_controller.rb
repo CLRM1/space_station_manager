@@ -9,7 +9,7 @@ class AstronautController < ApplicationController
 
   def create
     station = SpaceStation.find(params[:station_id])
-    astronaut = station.astronauts.create!(astronaut_params)
+    astronaut = station.astronauts.create(astronaut_params)
     astronaut.save
     redirect_to "/space_stations/#{station.id}/astronauts"
   end

@@ -61,18 +61,6 @@ RSpec.describe 'space_station show page', type: :feature do
     expect(page.text.index('Chris Hadfield')).to be < page.text.index('Neil Armstrong')
   end
 
-  it 'displays a link to update each astronaut' do
-    visit "/space_stations/#{@station.id}/astronauts"
-    click_link "Update Astronaut: #{@walker.name}"
-    expect(current_path).to eq("/astronauts/#{@walker.id}/edit")
-    fill_in 'name', with: 'Captain Kirk'
-    fill_in 'active', with: true
-    fill_in 'years_active', with: 40
-    click_on 'Save'
-    expect(current_path).to eq("/astronauts/#{@walker.id}")
-    expect(page).to have_content('Captain Kirk')
-  end
-
   it 'displays astronauts with years_active over a given threshold' do
     visit "/space_stations/#{@station.id}/astronauts"
     fill_in 'years_active_min', with: 10
@@ -80,5 +68,19 @@ RSpec.describe 'space_station show page', type: :feature do
     expect(current_path).to eq("/space_stations/#{@station.id}/astronauts")
     expect(page).to have_content(@walker.id)
     expect(page).to_not have_content(@kelly.id)
+  end
+
+  it 'displays a link to update each astronaut' do
+    Astronaut.destroy_all
+    @walker = Astronaut.create!(name: 'Shanon Walker', active: true, years_active: 11, space_station_id: @station.id)
+    visit "/space_stations/#{@station.id}/astronauts"
+    click_link "Update Astronaut"
+    expect(current_path).to eq("/astronauts/#{@walker.id}/edit")
+    fill_in 'name', with: 'Captain Kirk'
+    fill_in 'active', with: true
+    fill_in 'years_active', with: 40
+    click_on 'Save'
+    expect(current_path).to eq("/astronauts/#{@walker.id}")
+    expect(page).to have_content('Captain Kirk')
   end
 end
