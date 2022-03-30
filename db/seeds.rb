@@ -14,6 +14,8 @@ ess = SpaceStation.create!(name: 'European Space Station', habitable: false, max
 
 walker = Astronaut.create!(name: 'Shanon Walker', active: true, years_active: 10, space_station_id: iss.id)
 
+oniell = Astronaut.create!(name: 'Jack Oniell', active: true, years_active: 10, space_station_id: ess.id)
+
 kelly = Astronaut.create!(name: 'Scott Kelly', active: false, years_active: 7, space_station_id: iss.id)
 
 armstrong = Astronaut.create!(name: 'Neil Armstrong', active: false, years_active: 10, space_station_id: ess.id)

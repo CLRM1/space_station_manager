@@ -3,7 +3,11 @@
 <h1>Space Stations</h1>
 <% @stations.each do |station| %>
   <p><%= station.name + ". Created at: " + station.created_at.to_s %>
+    <%= form_with url:"space_stations/#{station.id}", local: true, method: :delete do |form| %>
     <%= link_to "Update #{station.name} info", "space_stations/#{station.id}/edit?stat=true" %>
+      <%= form.submit 'Delete Space Station' %>
+    <% end %>
   </p>
+  <br>
 <% end %>
 <%= link_to 'New Space Station', '/space_stations/new' %>

@@ -3,12 +3,15 @@
 <h1>Astronauts</h1>
 <% @astronauts.each do |astronaut| %>
   <p>Name: <%= astronaut.name %>
-    <%= link_to "Update Astronaut: #{astronaut.name}", "/astronauts/#{astronaut.id}/edit" %>
   </p>
   <p>Active: <%= astronaut.active %></p>
   <p>Years active: <%= astronaut.years_active %></p>
   <p>Id: <%= astronaut.id %></p>
   <p>Created at: <%= astronaut.created_at %></p>
   <p>Updated at: <%= astronaut.updated_at %></p>
+  <%= form_with url:"astronauts/#{astronaut.id}", local: true, method: :delete do |form| %>
+  <%= link_to "Update Astronaut: #{astronaut.name}", "/astronauts/#{astronaut.id}/edit" %>
+    <%= form.submit 'Delete Astronaut' %>
+  <% end %>
   <br>
 <% end %>
