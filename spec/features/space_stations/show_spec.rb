@@ -52,7 +52,7 @@ RSpec.describe 'space_station show page', type: :feature do
 
   it 'displays a link to delete the space station' do
     visit "/space_stations/#{@station.id}"
-    click_on 'Delete Space Station'
+    click_on 'Delete'
     expect(current_path).to eq('/space_stations')
     expect(page).to_not have_content(@station.name)
   end

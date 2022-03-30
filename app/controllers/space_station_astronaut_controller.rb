@@ -4,8 +4,7 @@ class SpaceStationAstronautController < ApplicationController
     if params[:sort] == 'sorted_astronauts'
       @astronauts = @station.astronauts.sorted_astronauts
     elsif params[:years_active_min]
-      number = params[:years_active_min]
-      @astronauts = @station.astronauts.where("years_active > #{number}")
+      @astronauts = @station.astronauts.where("years_active > #{params[:years_active_min]}")
     else
       @astronauts = @station.astronauts
     end

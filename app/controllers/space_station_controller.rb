@@ -7,11 +7,7 @@ class SpaceStationController < ApplicationController
   end
 
   def create
-    station = SpaceStation.create(
-              name: params[:name],
-              habitable: params[:habitable],
-              max_occupants: params[:max_occupants]
-    )
+    station = SpaceStation.create(space_station_params)
     station.save
     redirect_to '/space_stations'
   end
@@ -22,26 +18,24 @@ class SpaceStationController < ApplicationController
 
   def update
     station = SpaceStation.find(params[:station_id])
-    station.update({
-              name: params[:name],
-              habitable: params[:habitable],
-              max_occupants: params[:max_occupants]
-              })
+    station.update(space_station_params)
     station.save
     redirect_to "/space_stations/#{station.id}"
   end
 
   def destroy
-    # require 'pry'; binding.pry
     station = SpaceStation.find(params[:station_id])
-    # require 'pry'; binding.pry
     station.astronauts.destroy_all
     SpaceStation.destroy(params[:station_id])
-    # require 'pry'; binding.pry
     redirect_to "/space_stations"
   end
 
   def show
     @station = SpaceStation.find(params[:id])
+  end
+
+  private
+  def space_station_params
+    params.permit(:name, :habitable, :max_occupants)
   end
 end
