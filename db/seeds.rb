@@ -16,6 +16,6 @@ walker = Astronaut.create!(name: 'Shanon Walker', active: true, years_active: 10
 
 oniell = Astronaut.create!(name: 'Jack Oniell', active: true, years_active: 10, space_station_id: ess.id)
 
-kelly = Astronaut.create!(name: 'Scott Kelly', active: false, years_active: 7, space_station_id: iss.id)
+kelly = Astronaut.create!(name: 'Buzz Lightyear', active: false, years_active: 27, space_station_id: iss.id)
 
 armstrong = Astronaut.create!(name: 'Neil Armstrong', active: false, years_active: 10, space_station_id: ess.id)
