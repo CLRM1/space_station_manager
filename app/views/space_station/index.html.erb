@@ -1,10 +1,7 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-
-<%= link_to 'Space Station Index', '/space_stations' %>
-<%= link_to 'Astronaut Index', '/astronauts' %>
-<h1>Space Stations</h1>
+<br><br>
 <% @stations.each do |station| %>
   <p><%= station.name + ". Created at: " + station.created_at.to_s %>
     <%= link_to "Update", "space_stations/#{station.id}/edit?stat=true" %>

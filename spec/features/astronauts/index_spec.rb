@@ -18,8 +18,8 @@ RSpec.describe 'space_station show page', type: :feature do
 
   it 'displays a link at the top of the page that takes me to the astronauts index' do
     visit "/astronauts"
-    expect(page).to have_link('Astronaut Index')
-    click_link 'Astronaut Index'
+    expect(page).to have_link('Astronauts')
+    click_link 'Astronauts'
     expect(current_path).to eq('/astronauts')
     expect(current_path).to eq('/astronauts')
     expect(page).to have_content(@walker.name)
@@ -27,8 +27,8 @@ RSpec.describe 'space_station show page', type: :feature do
 
   it 'displays a link at the top of the page that takes me to the space stations index' do
     visit "/astronauts"
-    expect(page).to have_link('Space Station Index')
-    click_link 'Space Station Index'
+    expect(page).to have_link('Space Stations')
+    click_link 'Space Stations'
     expect(current_path).to eq('/space_stations')
     expect(page).to have_content(@station.name)
     expect(page).to have_content(@station_2.name)

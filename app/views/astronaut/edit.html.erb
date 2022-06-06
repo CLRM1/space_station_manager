@@ -2,6 +2,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
+<body style="background-color:#272727ff; font-family:verdana">
+
 <%= form_with url:"/astronauts/#{@astronaut.id}", local: true, method: :patch do |form| %>
   <p>Name: </p>
   <%= form.text_field :name  %>
@@ -11,3 +13,4 @@
   <%= form.text_field :years_active %>
   <p><%= form.submit 'Save' %></p>
 <% end %>
+</body>

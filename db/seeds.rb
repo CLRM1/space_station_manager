@@ -19,3 +19,5 @@ oniell = Astronaut.create!(name: 'Jack Oniell', active: true, years_active: 10, 
 kelly = Astronaut.create!(name: 'Buzz Lightyear', active: false, years_active: 27, space_station_id: iss.id)
 
 armstrong = Astronaut.create!(name: 'Neil Armstrong', active: false, years_active: 10, space_station_id: ess.id)
+
+lightyear = Astronaut.create!(name: 'Buzz Lightyear', active: true, years_active: 10, space_station_id: iss.id)
