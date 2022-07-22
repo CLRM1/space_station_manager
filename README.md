@@ -5,7 +5,7 @@ Space Station Manager is a Rails CRUD web app with hand-rolled API routes, a Pos
 - `git clone` this repo
 - `cd space_station_manager`
 - `bundle`
-- `rails db:{create, migrate}`
+- `rails db:{create, migrate, seed}`
 
 ## DB Schema
 <img width="402" alt="SpaceStationManagerDBSchema" src="https://user-images.githubusercontent.com/26349568/160028121-4194eac2-b329-4963-8276-d3963b7916c2.png">
